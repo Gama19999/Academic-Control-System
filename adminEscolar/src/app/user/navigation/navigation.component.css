@@ -1,0 +1,11 @@
+.right-gap {
+  margin-right: 1rem;
+}
+
+.navbar {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  border-radius: 0 0 20px 20px;
+  font-weight: bold;
+  font-size: 1.7rem;
+  padding: 0 3rem;
+}

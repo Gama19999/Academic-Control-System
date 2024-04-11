@@ -1,0 +1,22 @@
+.back {
+  z-index: 50;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.8);
+}
+
+.up {
+  z-index: 100;
+}
+
+.container {
+  margin: 33vh 38vw;
+  padding: 1rem;
+  width: 30%;
+  background: white;
+}
+
+.row {
+  margin: 0 2rem;
+}

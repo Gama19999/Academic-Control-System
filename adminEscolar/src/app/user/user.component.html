@@ -1,0 +1,14 @@
+<ng-container *ngComponentOutlet="expirationComp; inputs: inputs"></ng-container>
+
+<app-navigation></app-navigation>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <h1>Profile of <span>{{ user.userType }}</span>: {{ user.name + ' ' + user.lastName }}</h1>
+
+      <router-outlet></router-outlet>
+
+    </div>
+  </div>
+</div>

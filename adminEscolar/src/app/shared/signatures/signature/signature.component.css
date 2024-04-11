@@ -1,0 +1,28 @@
+h4 {
+  display: inline-block;
+}
+
+.left-gap {
+  margin-left: 10%;
+}
+
+.btn {
+  margin-top: 1%;
+  width: 100%;
+}
+
+.btn-primary {
+  width: 10%;
+}
+
+.g {
+  background: rgba(0, 255, 0, 0.5);
+}
+
+.b {
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.i {
+  background: rgba(112, 112, 112, 0.5);
+}

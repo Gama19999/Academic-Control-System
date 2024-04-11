@@ -1,0 +1,19 @@
+<div class="col-xs-10 col-xs-offset-1 term rounded shaded">
+  <h4>Student Id: {{ studentSignData.student.entityId }}</h4>
+  <h4 class="left-gap">Name: {{ studentSignData.student.name + ' ' + studentSignData.student.lastName }}</h4>
+  <div class="top-gap">
+    <div class="checkbox-inline">
+      <label>
+        <input type="radio" [name]="'ssid-' + studentSignData.terms[0].signStudId" value="true" required #radioP
+          checked>
+        Present
+      </label>
+    </div>
+    <div class="checkbox-inline">
+      <label>
+        <input type="radio" [name]="'ssid-' + studentSignData.terms[0].signStudId" value="false" required #radioF>
+        Absent
+      </label>
+    </div>
+  </div>
+</div>

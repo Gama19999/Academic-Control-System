@@ -1,0 +1,18 @@
+<div class="back">
+  <div class="container rounded">
+    <div class="row up">
+      <div class="col-xs-12">
+        <h3>{{ title }}</h3>
+        <p>{{ content }}</p>
+      </div><br><br>
+    </div>
+    <div class="row up">
+      <div class="col-xs-5 col-xs-offset-1" *ngIf="okButtonText != null">
+        <button type="button" class="btn btn-primary" (click)="okButtonAction()">{{ okButtonText }}</button>
+      </div>
+      <div class="col-xs-5 col-xs-offset-1" *ngIf="notOkButtonText != null">
+        <button type="button" class="btn btn-danger" (click)="notOkButtonAction()">{{ notOkButtonText }}</button>
+      </div>
+    </div><br>
+  </div>
+</div>

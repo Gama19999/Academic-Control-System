@@ -1,0 +1,21 @@
+<nav class="navbar navbar-default">
+  <div class="continer-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" routerLink="home">Home</a>
+    </div>
+
+    <ul class="nav navbar-nav" *ngIf="userType != 'admin'">
+      <li><a routerLink="signatures">Signatures</a></li>
+      <li><a routerLink="attendance">Attendance</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav" *ngIf="userType == 'admin'">
+      <li><a [routerLink]="['manage', 'students']">Students</a></li>
+      <li><a [routerLink]="['manage', 'teachers']">Teachers</a></li>
+    </ul>
+
+    <ul class="nav navbar-nav navbar-right right-gap">
+      <li><a (click)="logout()">Logout</a></li>
+    </ul>
+  </div>
+</nav>

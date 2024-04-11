@@ -1,0 +1,16 @@
+<hr>
+<div class="row scroll gap">
+  <div class="col-xs-12">
+    <h3>Management of {{ entity }}</h3>
+    <button type="button" class="btn btn-primary" (click)="addingNew = !addingNew">New</button>
+    <hr>
+  </div>
+
+  <div class="row" *ngIf="!addingNew">
+    <div class="col-xs-12">
+      <app-item *ngFor="let item of items" [entity]="item"></app-item>
+    </div>
+  </div>
+
+  <app-item *ngIf="addingNew" [entity]="newUser" [addingNew]="true"></app-item>
+</div>

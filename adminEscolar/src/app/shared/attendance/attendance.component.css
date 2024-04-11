@@ -1,0 +1,54 @@
+.visible {
+  background: rgba(100, 100, 100, 0.3);
+}
+
+.navbar {
+  padding: 0.2rem 1rem;
+}
+
+.navbar-nav > li > a:hover {
+  background: none;
+}
+
+.navbar-nav > li > a.visible:hover {
+  background: rgba(100,100,100,0.3);
+}
+
+.navbar-nav > li > a {
+  color: black;
+}
+
+.att {
+  text-align: center;
+  padding: 1rem 2rem;
+  margin: 10px 1rem;
+  background: rgba(0,0,0,0.3);
+}
+
+.present {
+  background-color: rgba(0,255,0,0.3);
+}
+
+.absent {
+  background-color: rgba(255,0,0,0.3);
+}
+
+.null {
+  background-color: rgba(255, 119, 0, 0.3);
+}
+
+.left-gap {
+  margin-left: 10%;
+}
+
+.left1 {
+  margin-left: 1rem;
+}
+
+.top3 {
+  margin-top: 3%;
+}
+
+.scroll {
+  height: 45vh;
+}

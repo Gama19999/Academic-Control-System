@@ -1,0 +1,149 @@
+/* You can add global styles to this file, and also import other style files */
+* {
+  font-family: 'Nunito';
+}
+
+html {
+  height: 100%;
+  background: url('./assets/backgrounds/uno.jpg') 50% 50% / 100% 100% no-repeat;
+}
+
+body {
+  background: transparent;
+}
+
+a {
+  cursor: pointer;
+}
+
+h1, h2, h3, h4, label, div.bold {
+  font-weight: bold;
+  text-shadow: 1px 1px rgba(0, 149, 255, 0.5);
+}
+
+label {
+  font-size: 1.6rem;
+}
+
+p {
+  font-weight: bold;
+  font-size: 1.6rem;
+  color: black;
+}
+
+hr {
+  border: none;
+}
+
+button,
+button:active,
+button:focus {
+  border: none !important;
+  outline: none !important;
+}
+
+option {
+  font-weight: bold;
+}
+
+input:active,
+input:focus {
+  outline: 0px solid transparent !important;
+}
+
+input[type='radio'] {
+  appearance: none;
+  width: 2.2rem;
+  height: 2.2rem;
+  border-radius: 50%;
+  border: 2px solid rgba(0, 87, 119, 0.7);
+  transition: all 0.1s linear;
+  vertical-align: sub;
+}
+
+input[type='radio']:checked {
+  border: 8px solid rgba(0, 87, 119, 0.7);
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(0,0,0,0.3);
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(0,0,0,0.5);
+}
+
+
+
+.rounded {
+  border-radius: 10px;
+}
+
+.shaded {
+  background: rgba(220,220,220,0.9);
+  font-weight: bold;
+  padding: 0.3rem 1rem 0.3rem 5rem;
+  border-radius: 10px;
+  box-shadow: 5px 6px 7px 0 rgba(0,0,0,0.5);
+}
+
+.term {
+  color: black;
+  text-align: center;
+  padding: 1rem 2rem;
+  margin-top: 10px;
+  margin-bottom: 17px;
+  background: rgba(220,220,220,0.9);
+}
+
+.top1 {
+  margin-top: 1%;
+}
+
+.bot1rem {
+  margin-bottom: 1rem;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.scroll {
+  height: 70vh;
+  overflow-y: overlay;
+  overflow-x: hidden;
+}
+
+.gap {
+  padding: 0 1rem;
+}
+
+
+.form-control,
+button {
+  height: 4rem;
+  font-size: 1.6rem;
+  box-shadow: 0 0 10px 0 rgba(0,0,0,0.3);
+}
+
+.form-control:focus {
+  outline: 1px solid rgba(0, 106, 145, 0.3);
+  box-shadow: 0 0 5px 2px rgba(0,189,255,0.4);
+  font-weight: bold;
+}
+
+.navbar {
+  color: black;
+}
+
+
+
+@font-face {
+  font-family: 'Nunito';
+  src: url('./assets/font/Nunito-VariableFont_wght.ttf') format("truetype");
+}

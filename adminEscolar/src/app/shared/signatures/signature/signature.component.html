@@ -1,0 +1,46 @@
+<div class="col-xs-12">
+  <div class="shaded row bot1rem">
+    <div class="col-xs-7 pointer" (click)="show()">
+      <h4>{{ signature.name }}</h4>
+    </div>
+    <div class="col-xs-2 top1">
+      <span *ngIf="message != ''">{{ message }}!</span>
+    </div>
+    <div class="col-xs-3">
+      <button class="btn btn-success" type="button" (click)="saveScores()" [disabled]="!gradesVisibility"
+        *ngIf="userType == 'teacher'">
+        Save scores
+      </button>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="userType == 'student'">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="row" *ngIf="gradesVisibility">
+        <div class="col-xs-3 col-xs-offset-1 term rounded shaded"
+          [ngClass]="{'g': signature.terms[i].calif >= 7 , 'b': signature.terms[i].calif < 7, 'i': signature.terms[i].calif == 0 }"
+          *ngFor="let term of signature.terms; let i = index">
+          <p>{{ signature.terms[i].term }}º Term</p>
+          <p>Grade for this term:</p>
+          <p>{{ signature.terms[i].calif }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="row" *ngIf="userType == 'teacher'">
+    <div class="col-xs-10 col-xs-offset-1">
+      <div class="row" *ngIf="gradesVisibility">
+        <div class="col-xs-10 col-xs-offset-1 term rounded shaded" *ngFor="let stud of studentsInSignature">
+          <h4>Student Id: {{ stud.student.entityId }}</h4>
+          <h4 class="left-gap">Name: {{ stud.student.name + ' ' + stud.student.lastName }}</h4>
+          <div class="row">
+            <br>
+            <app-score *ngFor="let term of stud.terms; let i = index" [term]="term" [idx]="i"></app-score>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

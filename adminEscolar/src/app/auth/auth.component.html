@@ -1,0 +1,52 @@
+<div class="login-back">
+  <div class="row">
+    <div class="col-xs-9 col-xs-offset-1">
+      <h1>Academic Control System</h1>
+      <hr><br><br>
+    </div>
+    <div class="col-xs-5 col-xs-offset-1">
+      <h3>User authentication</h3><br>
+    </div>
+    <div class="err col-xs-1 col-xs-offset-3" *ngIf="error">
+      <div class="failed rounded">{{ error.message }}<br>{{ error.cause }}</div>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-xs-12">
+      <form #authForm="ngForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+
+        <div class="form-group">
+          <label for="idNumber" class="control-label col-xs-2 col-xs-offset-3">ID Number:</label>
+          <div class="col-xs-3">
+            <input type="number" id="idNumber" name="idNumber" class="form-control" placeholder="Numbers only" ngModel
+              required maxlength="6">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="nip" class="control-label col-xs-2 col-xs-offset-3">NIP:</label>
+          <div class="col-xs-3">
+            <input type="password" id="nip" name="nip" class="form-control" placeholder="NIP" ngModel required>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="userType" class="control-label col-xs-2 col-xs-offset-3">Role:</label>
+          <div class="col-xs-3">
+            <select name="userType" id="userType" class="form-control" [(ngModel)]="userType">
+              <option [value]="type" *ngFor="let type of options">{{ type | titlecase }}</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class="col-xs-3 col-xs-offset-5">
+            <button class="btn btn-primary" type="submit" [disabled]="!authForm.valid">Login</button>&nbsp;&nbsp;
+          </div>
+        </div>
+
+      </form>
+    </div>
+  </div>
+</div>

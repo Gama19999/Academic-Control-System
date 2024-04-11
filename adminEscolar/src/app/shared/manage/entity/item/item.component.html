@@ -1,0 +1,126 @@
+<div class="shaded col-xs-11 left-gap bot1rem">
+  <div class="col-xs-6 pointer" (click)="show()">
+    <h4>{{ entity.lastName + ' ' + entity.name }}</h4>
+  </div>
+  <div class="col-xs-2 top1">
+    <span *ngIf="message != ''">{{ message }}</span>
+  </div>
+  <div class="col-xs-2">
+    <button class="btn btn-danger" type="button" (click)="deleteItem()" [disabled]="!infoVisible">
+      {{ addingNew ? 'Cancel' : 'Delete' }}
+    </button>
+  </div>
+  <div class="col-xs-2">
+    <button class="btn btn-success" type="button" (click)="saveItem()" [disabled]="!infoVisible">
+      Save
+    </button>
+  </div>
+</div>
+
+<div class="row" *ngIf="infoVisible">
+  <div class="col-xs-8 col-xs-offset-2">
+    <form #entityForm="ngForm">
+      <div class="term rounded form-horizontal">
+
+        <div ngModelGroup="entityGroup">
+          <div class="form-group">
+            <label class="control-label col-xs-2">{{ entity.userType | titlecase }} Id:</label>
+            <div class="col-xs-7 text-left top1 bold">{{ entity.entityId }}</div>
+            <div class="col-xs-7">
+              <input type="hidden" [value]="entity.entityId" name="entityId" class="form-control"
+                [(ngModel)]="entity.entityId">
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="name" class="control-label col-xs-2">Name:</label>
+            <div class="col-xs-7">
+              <input type="text" name="name" id="name" class="form-control" [(ngModel)]="entity.name" required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName" class="control-label col-xs-2">Last name:</label>
+            <div class="col-xs-7">
+              <input type="text" name="lastName" id="lastName" class="form-control" [(ngModel)]="entity.lastName"
+                required>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="grade" class="control-label col-xs-2">
+              {{ entity.userType == 'student' ? 'Grade' : 'Of grade'}}:
+            </label>
+            <div class="col-xs-7">
+              <input type="number" min="1" max="4" name="grade" id="grade" class="form-control"
+                [(ngModel)]="entity.grade" [readonly]="entity.grade != null" placeholder="1-4">
+            </div>
+            <div class="col-xs-1" *ngIf="addingNew">
+              <button type="button" class="btn btn-primary" *ngIf="entity.grade != null"
+                (click)="entity.grade = null">X</button>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-xs-2">Since:</label>
+            <div class="col-xs-7 text-left top1 bold">{{ entity.since | date:'longDate' }}</div>
+            <input type="hidden" [value]="entity.since" name="since" [(ngModel)]="entity.since">
+          </div>
+
+          <div class="form-group">
+            <label class="control-label col-xs-2">Active:</label>
+            <div class="col-xs-2">
+              <input type="button" class="btn" [ngStyle]="{'background': entity.status ? '#5cb85c' : '#d9534f'}"
+                (click)="entity.status = !entity.status" [(ngModel)]="entity.status" [value]="entity.status"
+                name="status">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group" *ngIf="!addingNew">
+          <div class="col-xs-2">
+            <button type="button" class="btn btn-primary" *ngIf="!updateMode" (click)="updateMode = !updateMode">Update
+              NIP</button>
+          </div>
+        </div>
+
+        <div ngModelGroup="nipGroup" #nipGroup="ngModelGroup">
+          <div *ngIf="updateMode">
+            <hr>
+            <div class="form-group" *ngIf="!addingNew">
+              <label for="old" class="control-label col-xs-2">Old NIP:</label>
+              <div class="col-xs-7">
+                <input type="password" name="old" id="old" class="form-control" [(ngModel)]="old" required>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="upd" class="control-label col-xs-2">New NIP:</label>
+              <div class="col-xs-7">
+                <input type="text" name="upd" id="upd" class="form-control" [(ngModel)]="upd" required>
+              </div>
+              <div class="col-xs-2 col-xs-offset-1" *ngIf="!addingNew">
+                <button type="button" class="btn btn-danger" (click)="updateMode = !updateMode">X</button>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="updConf" class="control-label col-xs-2">Confirm:</label>
+              <div class="col-xs-7">
+                <input type="password" name="updConf" id="updConf" class="form-control"
+                  [ngClass]="{'notequal': !isEqual}" [(ngModel)]="updConf" required (input)="check()">
+              </div>
+              <div class="col-xs-2 col-xs-offset-1">
+                <button type="button" class="btn btn-success" (click)="updNip()"
+                  [disabled]="!(isEqual && nipGroup.valid)" *ngIf="!addingNew">
+                  Update NIP
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </form>
+  </div>
+</div>

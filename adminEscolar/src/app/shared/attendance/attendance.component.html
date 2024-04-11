@@ -1,0 +1,47 @@
+<hr>
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Attendance</h3>
+    <hr>
+  </div>
+</div>
+
+<div class="navbar rounded shaded">
+  <div class="container-fluid">
+    <ul class="nav navbar-nav">
+      <li class="left1" *ngFor="let signature of signatures">
+        <a data-sign-id="{{ signature.signatureId }}" (click)="showAttendance($event)" class="rounded"
+          [ngClass]="{'visible': signatureInView == signature.signatureId }">{{ signature.name }}</a>
+      </li>
+      <li class="top1 left1" *ngIf="userType == 'teacher'">
+        <button type="button" class="btn btn-success" (click)="saveAttendance()" [disabled]="!visible">Save attendance</button>
+      </li>
+      <li class="left1 top3" *ngIf="savedAtts != 0">
+        <span>{{ savedAtts }} attendances saved!</span>
+      </li>
+    </ul>
+  </div>
+</div>
+
+<div class="row scroll gap" *ngIf="userType == 'student'">
+  <div class="col-xs-12" *ngIf="visible">
+    <div class="col-xs-2 att rounded shaded"
+      [ngClass]="{'present': at.status, 'absent': !at.status, 'null': at.status == null}" *ngFor="let at of attendance">
+      <div *ngIf="at.status != null">
+        <p>On: {{ at.date | date:'longDate' }}</p>
+        <p>You were {{ at.status ? 'present' : 'absent' }}</p>
+      </div>
+      <div *ngIf="at.status == null">
+        <p>No attendances registered yet!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row scroll gap" *ngIf="userType == 'teacher'">
+  <div class="col-xs-10 col-xs-offset-1">
+    <div class="row" *ngIf="visible">
+      <app-single-att *ngFor="let stud of studentsInSignature" [studentSignData]="stud"></app-single-att>
+    </div>
+  </div>
+</div>

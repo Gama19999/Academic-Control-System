@@ -1,0 +1,28 @@
+.btn {
+  margin-top: 1%;
+  width: 100%;
+  color: white;
+}
+
+input[type='button'] {
+  box-shadow: 2px 3px 3px 0 rgba(0,0,0,0.4);
+}
+
+input[type='button']:active {
+  box-shadow: 1px 1px 1px 0 rgba(0,0,0,0.3);
+}
+
+.left-gap {
+  margin-left: 4%;
+}
+
+.bold {
+  font-size: 1.6rem;
+}
+
+input.ng-touched.ng-invalid,
+.notequal {
+  border: 2px solid rgba(233, 102, 102, 0.6);
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075), 0 0 8px rgba(233, 102, 102, 0.6);
+}
+

@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    <h3>Academic data</h3>
+    <br>
+    <div class="shaded">
+      <p> {{ user.userType | titlecase }} ID: {{ user.entityId }}</p>
+      <p>Registered since: {{ user.since | date:'longDate' }}</p>
+      <p *ngIf="user.grade && user.grade != -1">{{ user.userType == 'student' ? 'Grade: ' : 'Teacher of grade: ' }} {{
+        user.grade }}</p>
+      <p [ngClass]="{'nomargin': user.grade != -1}">With a status of: {{ user.status ? 'Active' : 'Deactivated' }}</p>
+      <p class="nomargin" *ngIf="user.grade == -1">Account with permissons of: {{ user.topLevelAcc ? 'Super User' :
+        'Admin' }}</p>
+    </div>
+  </div>
+</div>

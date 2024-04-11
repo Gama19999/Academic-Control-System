@@ -1,0 +1,15 @@
+h4 {
+  display: inline-block;
+}
+
+.top-gap {
+  margin-top: 3%;
+}
+
+.left-gap {
+  margin-left: 10%;
+}
+
+.boxshadow {
+  box-shadow: 0 0 5px 0 rgba(0,0,0,0.4);
+}

@@ -1,0 +1,13 @@
+<hr>
+<div class="row scroll gap">
+  <div class="col-xs-12">
+    <h3>Signatures</h3>
+    <hr>
+  </div>
+  <div class="row">
+    <div class="col-xs-12">
+      <app-signature *ngFor="let sig of signatures; let i = index" [signature]="sig"
+        [userType]="userType"></app-signature>
+    </div>
+  </div>
+</div>
